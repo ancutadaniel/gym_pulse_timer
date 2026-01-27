@@ -80,7 +80,7 @@ struct RunView: View {
             }
             startLiveActivityIfNeeded()
         }
-        .onChange(of: engine.state) { _, newState in
+        .onChange(of: engine.state) { newState in
             guard let newState else { return }
             if newState.phase == .complete {
                 endLiveActivity(finalState: newState)

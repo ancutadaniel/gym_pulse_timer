@@ -72,9 +72,12 @@ extension GymPulseTimerWidgetAttributes.ContentState {
      }
 }
 
+#if DEBUG
+@available(iOS 17.2, *)
 #Preview("Notification", as: .content, using: GymPulseTimerWidgetAttributes.preview) {
-   GymPulseTimerWidgetLiveActivity()
+    GymPulseTimerWidgetLiveActivity()
 } contentStates: {
     GymPulseTimerWidgetAttributes.ContentState.smiley
     GymPulseTimerWidgetAttributes.ContentState.starEyes
 }
+#endif

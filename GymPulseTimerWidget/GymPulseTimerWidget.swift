@@ -76,9 +76,12 @@ struct GymPulseTimerWidget: Widget {
     }
 }
 
+#if DEBUG
+@available(iOS 17.0, *)
 #Preview(as: .systemSmall) {
     GymPulseTimerWidget()
 } timeline: {
     SimpleEntry(date: .now, emoji: "😀")
     SimpleEntry(date: .now, emoji: "🤩")
 }
+#endif

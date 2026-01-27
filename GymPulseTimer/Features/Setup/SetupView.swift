@@ -132,14 +132,14 @@ struct SetupView: View {
             audioCueManager.updatePreferences(soundEnabled: soundEnabled,
                                               voiceEnabled: voiceEnabled)
         }
-        .onChange(of: soundEnabled) { _, newValue in
+        .onChange(of: soundEnabled) { newValue in
             audioCueManager.updatePreferences(soundEnabled: newValue,
                                               voiceEnabled: voiceEnabled)
             if newValue, !suppressAudioPreview {
                 audioCueManager.previewSound()
             }
         }
-        .onChange(of: voiceEnabled) { _, newValue in
+        .onChange(of: voiceEnabled) { newValue in
             audioCueManager.updatePreferences(soundEnabled: soundEnabled,
                                               voiceEnabled: newValue)
             if newValue, !suppressAudioPreview {
@@ -444,10 +444,10 @@ private struct TimeWheelPicker: View {
             syncFromTotalSeconds(totalSeconds)
         }
         // iOS 17 style onChange (no deprecated warning)
-        .onChange(of: hours) { _, _ in updateTotalSeconds() }
-        .onChange(of: minutes) { _, _ in updateTotalSeconds() }
-        .onChange(of: seconds) { _, _ in updateTotalSeconds() }
-        .onChange(of: totalSeconds) { _, newValue in
+        .onChange(of: hours) { _ in updateTotalSeconds() }
+        .onChange(of: minutes) { _ in updateTotalSeconds() }
+        .onChange(of: seconds) { _ in updateTotalSeconds() }
+        .onChange(of: totalSeconds) { newValue in
             syncFromTotalSeconds(newValue)
         }
     }

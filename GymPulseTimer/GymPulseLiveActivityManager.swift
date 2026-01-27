@@ -1,7 +1,7 @@
 import ActivityKit
 import Foundation
 
-@available(iOS 16.1, *)
+@available(iOS 16.2, *)
 @MainActor
 final class GymPulseLiveActivityManager {
     static let shared = GymPulseLiveActivityManager()
@@ -86,37 +86,24 @@ final class GymPulseLiveActivityManager {
     private func requestActivity(attributes: GymPulseLiveActivityAttributes,
                                  contentState: GymPulseLiveActivityAttributes.ContentState)
     throws -> Activity<GymPulseLiveActivityAttributes> {
-        if #available(iOS 16.2, *) {
-            let content = ActivityContent(state: contentState, staleDate: contentState.phaseEndDate)
-            return try Activity.request(attributes: attributes, content: content, pushType: nil)
-        }
-        return try Activity.request(attributes: attributes,
-                                    contentState: contentState,
-                                    pushType: nil)
+        let content = ActivityContent(state: contentState, staleDate: contentState.phaseEndDate)
+        return try Activity.request(attributes: attributes, content: content, pushType: nil)
     }
 
     private func updateActivity(_ activity: Activity<GymPulseLiveActivityAttributes>,
                                 contentState: GymPulseLiveActivityAttributes.ContentState) async {
-        if #available(iOS 16.2, *) {
-            let content = ActivityContent(state: contentState, staleDate: contentState.phaseEndDate)
-            await activity.update(content)
-            return
-        }
-        await activity.update(using: contentState)
+        let content = ActivityContent(state: contentState, staleDate: contentState.phaseEndDate)
+        await activity.update(content)
     }
 
     private func endActivity(_ activity: Activity<GymPulseLiveActivityAttributes>,
                              contentState: GymPulseLiveActivityAttributes.ContentState?) async {
         if let contentState {
-            if #available(iOS 16.2, *) {
-                let content = ActivityContent(state: contentState, staleDate: contentState.phaseEndDate)
-                await activity.end(content, dismissalPolicy: .immediate)
-                return
-            }
-            await activity.end(using: contentState, dismissalPolicy: .immediate)
+            let content = ActivityContent(state: contentState, staleDate: contentState.phaseEndDate)
+            await activity.end(content, dismissalPolicy: .immediate)
             return
         }
-        await activity.end(dismissalPolicy: .immediate)
+        await activity.end(nil, dismissalPolicy: .immediate)
     }
 }
 
