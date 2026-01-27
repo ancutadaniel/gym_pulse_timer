@@ -14,23 +14,25 @@ struct GymPulseTimerLiveActivityWidget: Widget {
         } dynamicIsland: { context in
             DynamicIsland {
                 DynamicIslandExpandedRegion(.leading) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(context.state.phase.displayName)
-                            .font(.headline)
-                        Text("Set \(context.state.setIndex)/\(context.attributes.totalSets)")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
+                    Text(context.state.phase.displayName)
+                        .font(.headline)
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-                    Text("Round \(context.state.roundIndex)/\(context.attributes.totalRounds)")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                    VStack(alignment: .trailing, spacing: 2) {
+                        Text("Set \(context.state.setIndex)/\(context.attributes.totalSets)")
+                        Text("Round \(context.state.roundIndex)/\(context.attributes.totalRounds)")
+                    }
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-                    CountdownText(state: context.state)
-                        .font(.system(size: 28, weight: .bold, design: .rounded))
-                        .monospacedDigit()
+                    VStack(alignment: .leading, spacing: 8) {
+                        CountdownText(state: context.state)
+                            .font(.system(size: 28, weight: .bold, design: .rounded))
+                            .monospacedDigit()
+                        ProgressView(value: LiveActivityProgress.progress(for: context.state))
+                            .tint(context.state.phase.tintColor)
+                    }
                 }
             } compactLeading: {
                 Text(context.state.phase.compactTitle)
@@ -40,8 +42,9 @@ struct GymPulseTimerLiveActivityWidget: Widget {
                     .font(.caption2)
                     .monospacedDigit()
             } minimal: {
-                Text(context.state.phase.compactTitle)
+                CountdownText(state: context.state)
                     .font(.caption2)
+                    .monospacedDigit()
             }
             .widgetURL(context.attributes.deepLinkURL)
             .keylineTint(.accentColor)
@@ -54,29 +57,34 @@ private struct LiveActivityLockScreenView: View {
     let context: ActivityViewContext<GymPulseLiveActivityAttributes>
 
     var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .firstTextBaseline) {
                 Text(context.state.phase.displayName)
                     .font(.headline)
-                Text("Set \(context.state.setIndex)/\(context.attributes.totalSets)")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                Text("Round \(context.state.roundIndex)/\(context.attributes.totalRounds)")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-                if context.state.isPaused {
-                    Text("Paused")
-                        .font(.caption2)
-                        .foregroundStyle(.secondary)
-                }
+                Spacer()
+                CountdownText(state: context.state)
+                    .font(.system(size: 32, weight: .bold, design: .rounded))
+                    .monospacedDigit()
             }
-            Spacer()
-            CountdownText(state: context.state)
-                .font(.system(size: 32, weight: .bold, design: .rounded))
-                .monospacedDigit()
+
+            Text(summaryText)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+
+            ProgressView(value: LiveActivityProgress.progress(for: context.state))
+                .tint(context.state.phase.tintColor)
         }
         .padding(.horizontal)
         .widgetURL(context.attributes.deepLinkURL)
+    }
+
+    private var summaryText: String {
+        let setText = "Set \(context.state.setIndex)/\(context.attributes.totalSets)"
+        let roundText = "Round \(context.state.roundIndex)/\(context.attributes.totalRounds)"
+        if context.state.isPaused {
+            return "\(setText) • \(roundText) • Paused"
+        }
+        return "\(setText) • \(roundText)"
     }
 }
 
@@ -89,6 +97,38 @@ private struct CountdownText: View {
             Text(LiveActivityTimeFormatter.string(from: state.pausedRemainingSeconds))
         } else {
             Text(state.phaseEndDate, style: .timer)
+        }
+    }
+}
+
+private enum LiveActivityProgress {
+    static func progress(for state: GymPulseLiveActivityAttributes.ContentState) -> Double {
+        let duration = max(0, state.phaseDurationSeconds)
+        if duration == 0 {
+            return 1
+        }
+        let remaining: TimeInterval
+        if state.isPaused {
+            remaining = state.pausedRemainingSeconds ?? 0
+        } else {
+            remaining = state.phaseEndDate.timeIntervalSince(Date())
+        }
+        let clampedRemaining = min(max(remaining, 0), duration)
+        return max(0, min(1, (duration - clampedRemaining) / duration))
+    }
+}
+
+private extension LiveActivityPhase {
+    var tintColor: Color {
+        switch self {
+        case .getReady:
+            return .orange
+        case .work:
+            return .green
+        case .rest:
+            return .blue
+        case .complete:
+            return .gray
         }
     }
 }
