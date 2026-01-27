@@ -10,8 +10,8 @@
 		D8A71D652F27612500C4BB06 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A71D642F27612500C4BB06 /* WidgetKit.framework */; };
 		D8A71D672F27612500C4BB06 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A71D662F27612500C4BB06 /* SwiftUI.framework */; };
 		D8A71D742F27612600C4BB06 /* GymPulseTimerWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D8A71D622F27612500C4BB06 /* GymPulseTimerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D8A71D822F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseLiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A71D802F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseLiveActivityAttributes.swift */; };
-		D8A71D832F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseTimerLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A71D812F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseTimerLiveActivityWidget.swift */; };
+		D8A71D822F27620000C4BB06 /* GymPulseTimer/GymPulseLiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A71D802F27620000C4BB06 /* GymPulseTimer/GymPulseLiveActivityAttributes.swift */; };
+		D8A71D832F27620000C4BB06 /* GymPulseTimer/GymPulseTimerLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A71D812F27620000C4BB06 /* GymPulseTimer/GymPulseTimerLiveActivityWidget.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +59,8 @@
 		D8A71D622F27612500C4BB06 /* GymPulseTimerWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GymPulseTimerWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A71D642F27612500C4BB06 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		D8A71D662F27612500C4BB06 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		D8A71D802F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseLiveActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymPulseTimer/GymPulseTimer/GymPulseLiveActivityAttributes.swift; sourceTree = SOURCE_ROOT; };
-		D8A71D812F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseTimerLiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymPulseTimer/GymPulseTimer/GymPulseTimerLiveActivityWidget.swift; sourceTree = SOURCE_ROOT; };
+		D8A71D802F27620000C4BB06 /* GymPulseTimer/GymPulseLiveActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymPulseTimer/GymPulseLiveActivityAttributes.swift; sourceTree = SOURCE_ROOT; };
+		D8A71D812F27620000C4BB06 /* GymPulseTimer/GymPulseTimerLiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymPulseTimer/GymPulseTimerLiveActivityWidget.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -219,8 +219,8 @@
 		D8A71DC92F27674800C4BB06 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				D8A71D812F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseTimerLiveActivityWidget.swift */,
-				D8A71D802F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseLiveActivityAttributes.swift */,
+				D8A71D812F27620000C4BB06 /* GymPulseTimer/GymPulseTimerLiveActivityWidget.swift */,
+				D8A71D802F27620000C4BB06 /* GymPulseTimer/GymPulseLiveActivityAttributes.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -425,8 +425,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8A71D832F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseTimerLiveActivityWidget.swift in Sources */,
-				D8A71D822F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseLiveActivityAttributes.swift in Sources */,
+				D8A71D832F27620000C4BB06 /* GymPulseTimer/GymPulseTimerLiveActivityWidget.swift in Sources */,
+				D8A71D822F27620000C4BB06 /* GymPulseTimer/GymPulseLiveActivityAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
