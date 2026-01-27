@@ -1,0 +1,828 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D8A71D652F27612500C4BB06 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A71D642F27612500C4BB06 /* WidgetKit.framework */; };
+		D8A71D672F27612500C4BB06 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A71D662F27612500C4BB06 /* SwiftUI.framework */; };
+		D8A71D742F27612600C4BB06 /* GymPulseTimerWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D8A71D622F27612500C4BB06 /* GymPulseTimerWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D8A71D822F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseLiveActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A71D802F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseLiveActivityAttributes.swift */; };
+		D8A71D832F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseTimerLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A71D812F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseTimerLiveActivityWidget.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8A71CFC2F275E9500C4BB06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8A71CE42F275E9400C4BB06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8A71CEB2F275E9400C4BB06;
+			remoteInfo = GymPulseTimer;
+		};
+		D8A71D062F275E9500C4BB06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8A71CE42F275E9400C4BB06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8A71CEB2F275E9400C4BB06;
+			remoteInfo = GymPulseTimer;
+		};
+		D8A71D722F27612600C4BB06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8A71CE42F275E9400C4BB06 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D8A71D612F27612500C4BB06;
+			remoteInfo = GymPulseTimerWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D8A71D792F27612600C4BB06 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D8A71D742F27612600C4BB06 /* GymPulseTimerWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D8A71CEC2F275E9400C4BB06 /* GymPulseTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymPulseTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8A71CFB2F275E9500C4BB06 /* GymPulseTimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymPulseTimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8A71D052F275E9500C4BB06 /* GymPulseTimerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GymPulseTimerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8A71D622F27612500C4BB06 /* GymPulseTimerWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GymPulseTimerWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8A71D642F27612500C4BB06 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D8A71D662F27612500C4BB06 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		D8A71D802F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseLiveActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymPulseTimer/GymPulseTimer/GymPulseLiveActivityAttributes.swift; sourceTree = SOURCE_ROOT; };
+		D8A71D812F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseTimerLiveActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GymPulseTimer/GymPulseTimer/GymPulseTimerLiveActivityWidget.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D8A71D5C2F27607400C4BB06 /* Exceptions for "GymPulseTimer" folder in "GymPulseTimerTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				GymPulseTimer/ContentView.swift,
+				GymPulseTimer/Core/Models/Preset.swift,
+				GymPulseTimer/Core/Persistence/PresetStore.swift,
+				GymPulseTimer/Features/Presets/TimersListView.swift,
+				GymPulseTimer/Features/Run/ProgressRingView.swift,
+				GymPulseTimer/Features/Run/RunView.swift,
+				GymPulseTimer/Features/Setup/SetupView.swift,
+				GymPulseTimer/GymPulseLiveActivityAttributes.swift,
+				GymPulseTimer/GymPulseLiveActivityManager.swift,
+				GymPulseTimer/GymPulseTimerApp.swift,
+				GymPulseTimer/GymPulseTimerLiveActivityWidget.swift,
+				GymPulseTimer/TimerEngine.swift,
+				GymPulseTimer/TimerModels.swift,
+			);
+			target = D8A71CFA2F275E9500C4BB06 /* GymPulseTimerTests */;
+		};
+		D8A71D5D2F27607400C4BB06 /* Exceptions for "GymPulseTimer" folder in "GymPulseTimerUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				GymPulseTimer/ContentView.swift,
+				GymPulseTimer/Core/Models/Preset.swift,
+				GymPulseTimer/Core/Persistence/PresetStore.swift,
+				GymPulseTimer/Features/Presets/TimersListView.swift,
+				GymPulseTimer/Features/Run/ProgressRingView.swift,
+				GymPulseTimer/Features/Run/RunView.swift,
+				GymPulseTimer/Features/Setup/SetupView.swift,
+				GymPulseTimer/GymPulseLiveActivityAttributes.swift,
+				GymPulseTimer/GymPulseLiveActivityManager.swift,
+				GymPulseTimer/GymPulseTimerApp.swift,
+				GymPulseTimer/GymPulseTimerLiveActivityWidget.swift,
+				GymPulseTimer/TimerEngine.swift,
+				GymPulseTimer/TimerModels.swift,
+			);
+			target = D8A71D042F275E9500C4BB06 /* GymPulseTimerUITests */;
+		};
+		D8A71D782F27612600C4BB06 /* Exceptions for "GymPulseTimerWidget" folder in "GymPulseTimerWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D8A71D612F27612500C4BB06 /* GymPulseTimerWidgetExtension */;
+		};
+		D8A71D842F27620000C4BB06 /* Exceptions for "GymPulseTimer" folder in "GymPulseTimer" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				GymPulseTimer/GymPulseTimerLiveActivityWidget.swift,
+			);
+			target = D8A71CEB2F275E9400C4BB06 /* GymPulseTimer */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		D8A71CEE2F275E9400C4BB06 /* GymPulseTimer */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D8A71D842F27620000C4BB06 /* Exceptions for "GymPulseTimer" folder in "GymPulseTimer" target */,
+				D8A71D5C2F27607400C4BB06 /* Exceptions for "GymPulseTimer" folder in "GymPulseTimerTests" target */,
+				D8A71D5D2F27607400C4BB06 /* Exceptions for "GymPulseTimer" folder in "GymPulseTimerUITests" target */,
+			);
+			path = GymPulseTimer;
+			sourceTree = "<group>";
+		};
+		D8A71CFE2F275E9500C4BB06 /* GymPulseTimerTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GymPulseTimerTests;
+			sourceTree = "<group>";
+		};
+		D8A71D082F275E9500C4BB06 /* GymPulseTimerUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GymPulseTimerUITests;
+			sourceTree = "<group>";
+		};
+		D8A71D682F27612500C4BB06 /* GymPulseTimerWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D8A71D782F27612600C4BB06 /* Exceptions for "GymPulseTimerWidget" folder in "GymPulseTimerWidgetExtension" target */,
+			);
+			path = GymPulseTimerWidget;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8A71CE92F275E9400C4BB06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8A71CF82F275E9500C4BB06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8A71D022F275E9500C4BB06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8A71D5F2F27612500C4BB06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8A71D672F27612500C4BB06 /* SwiftUI.framework in Frameworks */,
+				D8A71D652F27612500C4BB06 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D8A71CE32F275E9400C4BB06 = {
+			isa = PBXGroup;
+			children = (
+				D8A71CEE2F275E9400C4BB06 /* GymPulseTimer */,
+				D8A71CFE2F275E9500C4BB06 /* GymPulseTimerTests */,
+				D8A71D082F275E9500C4BB06 /* GymPulseTimerUITests */,
+				D8A71D682F27612500C4BB06 /* GymPulseTimerWidget */,
+				D8A71D632F27612500C4BB06 /* Frameworks */,
+				D8A71CED2F275E9400C4BB06 /* Products */,
+				D8A71DC92F27674800C4BB06 /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		D8A71CED2F275E9400C4BB06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8A71CEC2F275E9400C4BB06 /* GymPulseTimer.app */,
+				D8A71CFB2F275E9500C4BB06 /* GymPulseTimerTests.xctest */,
+				D8A71D052F275E9500C4BB06 /* GymPulseTimerUITests.xctest */,
+				D8A71D622F27612500C4BB06 /* GymPulseTimerWidgetExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D8A71D632F27612500C4BB06 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8A71D642F27612500C4BB06 /* WidgetKit.framework */,
+				D8A71D662F27612500C4BB06 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8A71DC92F27674800C4BB06 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				D8A71D812F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseTimerLiveActivityWidget.swift */,
+				D8A71D802F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseLiveActivityAttributes.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8A71CEB2F275E9400C4BB06 /* GymPulseTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8A71D0F2F275E9500C4BB06 /* Build configuration list for PBXNativeTarget "GymPulseTimer" */;
+			buildPhases = (
+				D8A71CE82F275E9400C4BB06 /* Sources */,
+				D8A71CE92F275E9400C4BB06 /* Frameworks */,
+				D8A71CEA2F275E9400C4BB06 /* Resources */,
+				D8A71D792F27612600C4BB06 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8A71D732F27612600C4BB06 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D8A71CEE2F275E9400C4BB06 /* GymPulseTimer */,
+			);
+			name = GymPulseTimer;
+			packageProductDependencies = (
+			);
+			productName = GymPulseTimer;
+			productReference = D8A71CEC2F275E9400C4BB06 /* GymPulseTimer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D8A71CFA2F275E9500C4BB06 /* GymPulseTimerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8A71D122F275E9500C4BB06 /* Build configuration list for PBXNativeTarget "GymPulseTimerTests" */;
+			buildPhases = (
+				D8A71CF72F275E9500C4BB06 /* Sources */,
+				D8A71CF82F275E9500C4BB06 /* Frameworks */,
+				D8A71CF92F275E9500C4BB06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8A71CFD2F275E9500C4BB06 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D8A71CFE2F275E9500C4BB06 /* GymPulseTimerTests */,
+			);
+			name = GymPulseTimerTests;
+			packageProductDependencies = (
+			);
+			productName = GymPulseTimerTests;
+			productReference = D8A71CFB2F275E9500C4BB06 /* GymPulseTimerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D8A71D042F275E9500C4BB06 /* GymPulseTimerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8A71D152F275E9500C4BB06 /* Build configuration list for PBXNativeTarget "GymPulseTimerUITests" */;
+			buildPhases = (
+				D8A71D012F275E9500C4BB06 /* Sources */,
+				D8A71D022F275E9500C4BB06 /* Frameworks */,
+				D8A71D032F275E9500C4BB06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8A71D072F275E9500C4BB06 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D8A71D082F275E9500C4BB06 /* GymPulseTimerUITests */,
+			);
+			name = GymPulseTimerUITests;
+			packageProductDependencies = (
+			);
+			productName = GymPulseTimerUITests;
+			productReference = D8A71D052F275E9500C4BB06 /* GymPulseTimerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		D8A71D612F27612500C4BB06 /* GymPulseTimerWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8A71D752F27612600C4BB06 /* Build configuration list for PBXNativeTarget "GymPulseTimerWidgetExtension" */;
+			buildPhases = (
+				D8A71D5E2F27612500C4BB06 /* Sources */,
+				D8A71D5F2F27612500C4BB06 /* Frameworks */,
+				D8A71D602F27612500C4BB06 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D8A71D682F27612500C4BB06 /* GymPulseTimerWidget */,
+			);
+			name = GymPulseTimerWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = GymPulseTimerWidgetExtension;
+			productReference = D8A71D622F27612500C4BB06 /* GymPulseTimerWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8A71CE42F275E9400C4BB06 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2620;
+				LastUpgradeCheck = 2620;
+				TargetAttributes = {
+					D8A71CEB2F275E9400C4BB06 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+					D8A71CFA2F275E9500C4BB06 = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = D8A71CEB2F275E9400C4BB06;
+					};
+					D8A71D042F275E9500C4BB06 = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = D8A71CEB2F275E9400C4BB06;
+					};
+					D8A71D612F27612500C4BB06 = {
+						CreatedOnToolsVersion = 26.2;
+					};
+				};
+			};
+			buildConfigurationList = D8A71CE72F275E9400C4BB06 /* Build configuration list for PBXProject "GymPulseTimer" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D8A71CE32F275E9400C4BB06;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = D8A71CED2F275E9400C4BB06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D8A71CEB2F275E9400C4BB06 /* GymPulseTimer */,
+				D8A71CFA2F275E9500C4BB06 /* GymPulseTimerTests */,
+				D8A71D042F275E9500C4BB06 /* GymPulseTimerUITests */,
+				D8A71D612F27612500C4BB06 /* GymPulseTimerWidgetExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8A71CEA2F275E9400C4BB06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8A71CF92F275E9500C4BB06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8A71D032F275E9500C4BB06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8A71D602F27612500C4BB06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8A71CE82F275E9400C4BB06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8A71CF72F275E9500C4BB06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8A71D012F275E9500C4BB06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8A71D5E2F27612500C4BB06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8A71D832F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseTimerLiveActivityWidget.swift in Sources */,
+				D8A71D822F27620000C4BB06 /* GymPulseTimer/GymPulseTimer/GymPulseLiveActivityAttributes.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8A71CFD2F275E9500C4BB06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8A71CEB2F275E9400C4BB06 /* GymPulseTimer */;
+			targetProxy = D8A71CFC2F275E9500C4BB06 /* PBXContainerItemProxy */;
+		};
+		D8A71D072F275E9500C4BB06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8A71CEB2F275E9400C4BB06 /* GymPulseTimer */;
+			targetProxy = D8A71D062F275E9500C4BB06 /* PBXContainerItemProxy */;
+		};
+		D8A71D732F27612600C4BB06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D8A71D612F27612500C4BB06 /* GymPulseTimerWidgetExtension */;
+			targetProxy = D8A71D722F27612600C4BB06 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D8A71D0D2F275E9500C4BB06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D8A71D0E2F275E9500C4BB06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8A71D102F275E9500C4BB06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CVGUJSCD9P;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.web3bit.ro.GymPulseTimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8A71D112F275E9500C4BB06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CVGUJSCD9P;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.web3bit.ro.GymPulseTimer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D8A71D132F275E9500C4BB06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.web3bit.ro.GymPulseTimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GymPulseTimer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GymPulseTimer";
+			};
+			name = Debug;
+		};
+		D8A71D142F275E9500C4BB06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.web3bit.ro.GymPulseTimerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GymPulseTimer.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GymPulseTimer";
+			};
+			name = Release;
+		};
+		D8A71D162F275E9500C4BB06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.web3bit.ro.GymPulseTimerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GymPulseTimer;
+			};
+			name = Debug;
+		};
+		D8A71D172F275E9500C4BB06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.web3bit.ro.GymPulseTimerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = GymPulseTimer;
+			};
+			name = Release;
+		};
+		D8A71D762F27612600C4BB06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CVGUJSCD9P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GymPulseTimerWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GymPulseTimerWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.web3bit.ro.GymPulseTimer.GymPulseTimerWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8A71D772F27612600C4BB06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = CVGUJSCD9P;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GymPulseTimerWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GymPulseTimerWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.web3bit.ro.GymPulseTimer.GymPulseTimerWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8A71CE72F275E9400C4BB06 /* Build configuration list for PBXProject "GymPulseTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8A71D0D2F275E9500C4BB06 /* Debug */,
+				D8A71D0E2F275E9500C4BB06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8A71D0F2F275E9500C4BB06 /* Build configuration list for PBXNativeTarget "GymPulseTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8A71D102F275E9500C4BB06 /* Debug */,
+				D8A71D112F275E9500C4BB06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8A71D122F275E9500C4BB06 /* Build configuration list for PBXNativeTarget "GymPulseTimerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8A71D132F275E9500C4BB06 /* Debug */,
+				D8A71D142F275E9500C4BB06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8A71D152F275E9500C4BB06 /* Build configuration list for PBXNativeTarget "GymPulseTimerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8A71D162F275E9500C4BB06 /* Debug */,
+				D8A71D172F275E9500C4BB06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8A71D752F27612600C4BB06 /* Build configuration list for PBXNativeTarget "GymPulseTimerWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8A71D762F27612600C4BB06 /* Debug */,
+				D8A71D772F27612600C4BB06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D8A71CE42F275E9400C4BB06 /* Project object */;
+}
