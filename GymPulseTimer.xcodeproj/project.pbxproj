@@ -64,44 +64,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		D8A71D5C2F27607400C4BB06 /* Exceptions for "GymPulseTimer" folder in "GymPulseTimerTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				GymPulseTimer/ContentView.swift,
-				GymPulseTimer/Core/Models/Preset.swift,
-				GymPulseTimer/Core/Persistence/PresetStore.swift,
-				GymPulseTimer/Features/Presets/TimersListView.swift,
-				GymPulseTimer/Features/Run/ProgressRingView.swift,
-				GymPulseTimer/Features/Run/RunView.swift,
-				GymPulseTimer/Features/Setup/SetupView.swift,
-				GymPulseTimer/GymPulseLiveActivityAttributes.swift,
-				GymPulseTimer/GymPulseLiveActivityManager.swift,
-				GymPulseTimer/GymPulseTimerApp.swift,
-				GymPulseTimer/GymPulseTimerLiveActivityWidget.swift,
-				GymPulseTimer/TimerEngine.swift,
-				GymPulseTimer/TimerModels.swift,
-			);
-			target = D8A71CFA2F275E9500C4BB06 /* GymPulseTimerTests */;
-		};
-		D8A71D5D2F27607400C4BB06 /* Exceptions for "GymPulseTimer" folder in "GymPulseTimerUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				GymPulseTimer/ContentView.swift,
-				GymPulseTimer/Core/Models/Preset.swift,
-				GymPulseTimer/Core/Persistence/PresetStore.swift,
-				GymPulseTimer/Features/Presets/TimersListView.swift,
-				GymPulseTimer/Features/Run/ProgressRingView.swift,
-				GymPulseTimer/Features/Run/RunView.swift,
-				GymPulseTimer/Features/Setup/SetupView.swift,
-				GymPulseTimer/GymPulseLiveActivityAttributes.swift,
-				GymPulseTimer/GymPulseLiveActivityManager.swift,
-				GymPulseTimer/GymPulseTimerApp.swift,
-				GymPulseTimer/GymPulseTimerLiveActivityWidget.swift,
-				GymPulseTimer/TimerEngine.swift,
-				GymPulseTimer/TimerModels.swift,
-			);
-			target = D8A71D042F275E9500C4BB06 /* GymPulseTimerUITests */;
-		};
 		D8A71D782F27612600C4BB06 /* Exceptions for "GymPulseTimerWidget" folder in "GymPulseTimerWidgetExtension" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -109,23 +71,11 @@
 			);
 			target = D8A71D612F27612500C4BB06 /* GymPulseTimerWidgetExtension */;
 		};
-		D8A71D842F27620000C4BB06 /* Exceptions for "GymPulseTimer" folder in "GymPulseTimer" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				GymPulseTimer/GymPulseTimerLiveActivityWidget.swift,
-			);
-			target = D8A71CEB2F275E9400C4BB06 /* GymPulseTimer */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D8A71CEE2F275E9400C4BB06 /* GymPulseTimer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				D8A71D842F27620000C4BB06 /* Exceptions for "GymPulseTimer" folder in "GymPulseTimer" target */,
-				D8A71D5C2F27607400C4BB06 /* Exceptions for "GymPulseTimer" folder in "GymPulseTimerTests" target */,
-				D8A71D5D2F27607400C4BB06 /* Exceptions for "GymPulseTimer" folder in "GymPulseTimerUITests" target */,
-			);
 			path = GymPulseTimer;
 			sourceTree = "<group>";
 		};
