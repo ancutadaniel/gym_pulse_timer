@@ -25,8 +25,12 @@ struct RunView: View {
         VStack(spacing: 24) {
             Spacer()
 
+            Text("Gym Pulse Timer")
+                .font(.largeTitle.weight(.bold))
+                .foregroundStyle(.primary)
+
             Text(phaseLabel(for: state))
-                .font(.caption)
+                .font(.title3.weight(.semibold))
                 .tracking(2)
                 .foregroundStyle(.secondary)
 

@@ -7,7 +7,7 @@ struct SetupIntervalsSectionView: View {
     let dividerColor: Color
 
     var body: some View {
-        SetupSectionCard("Intervals") {
+        SetupSectionCard("Intervals", titleFont: .title2) {
             IntervalRow(title: "Get Ready",
                         totalSeconds: $getReadySeconds,
                         allowZero: true)
@@ -35,7 +35,7 @@ private struct IntervalRow: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
-                .font(.headline)
+                .font(.title2)
             TimeWheelPicker(totalSeconds: $totalSeconds, allowZero: allowZero)
         }
         .padding(.vertical, 4)
