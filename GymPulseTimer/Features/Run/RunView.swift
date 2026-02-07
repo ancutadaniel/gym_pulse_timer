@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import UIKit
 
 struct RunView: View {
     @Environment(\.dismiss) private var dismiss
@@ -72,6 +73,7 @@ struct RunView: View {
         .padding(.bottom, 24)
         .background(Color(.systemBackground).ignoresSafeArea())
         .onAppear {
+            UIApplication.shared.isIdleTimerDisabled = true
             audioCueManager.updatePreferences(soundEnabled: preset.soundEnabled,
                                               voiceEnabled: preset.voiceEnabled)
             if engine.state == nil {
@@ -83,6 +85,9 @@ struct RunView: View {
                 handleAudioCues(for: state)
             }
             startLiveActivityIfNeeded()
+        }
+        .onDisappear {
+            UIApplication.shared.isIdleTimerDisabled = false
         }
         .onChange(of: engine.state) { newState in
             guard let newState else { return }

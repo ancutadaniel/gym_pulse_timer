@@ -9,7 +9,7 @@ struct GymPulseTimerLiveActivityWidget: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: GymPulseLiveActivityAttributes.self) { context in
             LiveActivityLockScreenView(context: context)
-                .activityBackgroundTint(.clear)
+                .activityBackgroundTint(Color.black)
                 .activitySystemActionForegroundColor(.white)
         } dynamicIsland: { context in
             DynamicIsland {
@@ -67,23 +67,26 @@ private struct LiveActivityLockScreenView: View {
     let context: ActivityViewContext<GymPulseLiveActivityAttributes>
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text(context.state.phase.displayName.uppercased())
-                .font(.headline)
-                .foregroundStyle(.white.opacity(0.9))
+        VStack(alignment: .leading, spacing: 10) {
+            HStack {
+                Text(context.state.phase.displayName.uppercased())
+                    .font(.system(size: 16, weight: .bold))
+                    .foregroundStyle(.white)
+                Spacer()
+                Text(summaryText)
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundStyle(.white)
+            }
 
             CountdownText(state: context.state)
-                .font(.system(size: 36, weight: .bold, design: .rounded))
+                .font(.system(size: 48, weight: .heavy, design: .rounded))
                 .monospacedDigit()
-                .foregroundStyle(phaseColor)
-
-            Text(summaryText)
-                .font(.caption)
-                .foregroundStyle(.white.opacity(0.75))
+                .foregroundStyle(.white)
 
             if context.state.isPaused {
                 ProgressView(value: LiveActivityProgress.progress(for: context.state))
                     .tint(phaseColor)
+                    .scaleEffect(y: 2)
             } else {
                 ProgressView(timerInterval: phaseStartDate...context.state.phaseEndDate, countsDown: false) {
                     EmptyView()
@@ -91,6 +94,7 @@ private struct LiveActivityLockScreenView: View {
                     EmptyView()
                 }
                 .tint(phaseColor)
+                .scaleEffect(y: 2)
             }
         }
         .padding()
