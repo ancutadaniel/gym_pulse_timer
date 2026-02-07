@@ -38,6 +38,7 @@ struct GymPulseLiveActivityAttributes: ActivityAttributes {
     struct ContentState: Codable, Hashable {
         var phase: LiveActivityPhase
         var phaseEndDate: Date
+        var phaseDurationSeconds: TimeInterval
         var setIndex: Int
         var roundIndex: Int
         var isPaused: Bool

@@ -20,7 +20,7 @@ final class GymPulseLiveActivityManager {
             totalRounds: configuration.rounds,
             deepLinkURL: GymPulseDeepLink.liveActivityURL(sessionId: sessionId)
         )
-        let contentState = makeContentState(from: session)
+        let contentState = makeContentState(from: session, configuration: configuration)
 
         if let existingActivity = resolveActivity(sessionId: sessionId) {
             await updateActivity(existingActivity, contentState: contentState)
@@ -38,15 +38,21 @@ final class GymPulseLiveActivityManager {
         }
     }
 
-    func updateActivity(session: TimerSessionState, sessionId: String? = nil) async {
+    func updateActivity(session: TimerSessionState,
+                        configuration: TimerConfiguration,
+                        sessionId: String? = nil) async {
         guard let activity = resolveActivity(sessionId: sessionId) else { return }
-        let contentState = makeContentState(from: session)
+        let contentState = makeContentState(from: session, configuration: configuration)
         await updateActivity(activity, contentState: contentState)
     }
 
-    func endActivity(finalSession: TimerSessionState? = nil, sessionId: String? = nil) async {
+    func endActivity(finalSession: TimerSessionState? = nil,
+                     configuration: TimerConfiguration? = nil,
+                     sessionId: String? = nil) async {
         guard let activity = resolveActivity(sessionId: sessionId) else { return }
-        let contentState = finalSession.map { makeContentState(from: $0) }
+        let contentState = finalSession.flatMap { session in
+            configuration.map { makeContentState(from: session, configuration: $0) }
+        }
         await endActivity(activity, contentState: contentState)
         if activity.id == currentActivity?.id {
             currentActivity = nil
@@ -71,11 +77,13 @@ final class GymPulseLiveActivityManager {
         return Activity<GymPulseLiveActivityAttributes>.activities.first
     }
 
-    private func makeContentState(from session: TimerSessionState)
+    private func makeContentState(from session: TimerSessionState,
+                                  configuration: TimerConfiguration)
     -> GymPulseLiveActivityAttributes.ContentState {
         GymPulseLiveActivityAttributes.ContentState(
             phase: LiveActivityPhase(timerPhase: session.phase),
             phaseEndDate: session.phaseEndDate,
+            phaseDurationSeconds: configuration.duration(for: session.phase),
             setIndex: session.setIndex,
             roundIndex: session.roundIndex,
             isPaused: session.isPaused,

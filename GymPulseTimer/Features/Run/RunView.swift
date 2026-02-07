@@ -100,9 +100,6 @@ struct RunView: View {
                 handleAudioCues(for: state)
             }
         }
-        .onDisappear {
-            endLiveActivity(finalState: engine.state)
-        }
     }
 
     private func togglePause() {
@@ -220,6 +217,7 @@ struct RunView: View {
             Task {
                 await GymPulseLiveActivityManager.shared.updateActivity(
                     session: state,
+                    configuration: engine.configuration,
                     sessionId: liveActivitySessionId
                 )
             }
@@ -231,6 +229,7 @@ struct RunView: View {
             Task {
                 await GymPulseLiveActivityManager.shared.endActivity(
                     finalSession: finalState,
+                    configuration: engine.configuration,
                     sessionId: liveActivitySessionId
                 )
             }
