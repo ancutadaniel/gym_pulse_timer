@@ -30,24 +30,31 @@ struct GymPulseTimerLiveActivityWidget: Widget {
                         CountdownText(state: context.state)
                             .font(.system(size: 28, weight: .bold, design: .rounded))
                             .monospacedDigit()
-                Text(summaryLine(for: context))
+                            .foregroundStyle(context.state.phase.tintColor)
+                        Text(summaryLine(for: context))
                             .font(.caption)
                             .foregroundStyle(.secondary)
-                        ProgressView(value: LiveActivityProgress.progress(for: context.state))
+                        if context.state.isPaused {
+                            ProgressView(value: LiveActivityProgress.progress(for: context.state))
+                                .tint(context.state.phase.tintColor)
+                        } else {
+                            ProgressView(timerInterval: context.state.phaseEndDate.addingTimeInterval(-context.state.phaseDurationSeconds)...context.state.phaseEndDate, countsDown: false) {
+                                EmptyView()
+                            } currentValueLabel: {
+                                EmptyView()
+                            }
                             .tint(context.state.phase.tintColor)
+                        }
                     }
                 }
             } compactLeading: {
                 Text(context.state.phase.compactTitle)
                     .font(.caption2)
+                    .foregroundStyle(context.state.phase.tintColor)
             } compactTrailing: {
-                CountdownText(state: context.state)
-                    .font(.caption2)
-                    .monospacedDigit()
+                CompactProgressView(state: context.state)
             } minimal: {
-                CountdownText(state: context.state)
-                    .font(.caption2)
-                    .monospacedDigit()
+                CompactProgressView(state: context.state)
             }
             .widgetURL(context.attributes.deepLinkURL)
             .keylineTint(.accentColor)
@@ -60,66 +67,80 @@ private struct LiveActivityLockScreenView: View {
     let context: ActivityViewContext<GymPulseLiveActivityAttributes>
 
     var body: some View {
-        VStack {
-            Spacer(minLength: 0)
+        VStack(alignment: .leading, spacing: 8) {
+            Text(context.state.phase.displayName.uppercased())
+                .font(.headline)
+                .foregroundStyle(.white.opacity(0.9))
 
-            VStack(alignment: .center, spacing: 8) {
-                Text(context.state.phase.displayName.uppercased())
-                    .font(.headline)
-                    .foregroundStyle(.white.opacity(0.9))
+            CountdownText(state: context.state)
+                .font(.system(size: 36, weight: .bold, design: .rounded))
+                .monospacedDigit()
+                .foregroundStyle(phaseColor)
 
-                CountdownText(state: context.state)
-                    .font(.system(size: 36, weight: .bold, design: .rounded))
-                    .monospacedDigit()
-                    .foregroundStyle(timeTintColor)
+            Text(summaryText)
+                .font(.caption)
+                .foregroundStyle(.white.opacity(0.75))
 
-                Text(summaryText)
-                    .font(.caption)
-                    .foregroundStyle(.white.opacity(0.75))
-
+            if context.state.isPaused {
                 ProgressView(value: LiveActivityProgress.progress(for: context.state))
-                    .tint(context.state.phase.tintColor)
+                    .tint(phaseColor)
+            } else {
+                ProgressView(timerInterval: phaseStartDate...context.state.phaseEndDate, countsDown: false) {
+                    EmptyView()
+                } currentValueLabel: {
+                    EmptyView()
+                }
+                .tint(phaseColor)
             }
-            .padding(.vertical, 14)
-            .padding(.horizontal, 18)
-            .frame(maxWidth: .infinity)
-            .background(
-                LinearGradient(
-                    colors: [
-                        Color.blue.opacity(0.7),
-                        Color.blue.opacity(0.45),
-                        Color.orange.opacity(0.35)
-                    ],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-            )
-            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-            .overlay(
-                RoundedRectangle(cornerRadius: 24, style: .continuous)
-                    .stroke(Color.white.opacity(0.18), lineWidth: 1)
-            )
         }
-        .padding(.horizontal, 10)
-        .padding(.bottom, 6)
+        .padding()
         .widgetURL(context.attributes.deepLinkURL)
+    }
+
+    private var phaseStartDate: Date {
+        context.state.phaseEndDate.addingTimeInterval(-context.state.phaseDurationSeconds)
     }
 
     private var summaryText: String {
         summaryLine(for: context)
     }
 
-    private var timeTintColor: Color {
+    private var phaseColor: Color {
         switch context.state.phase {
         case .getReady:
-            return Color.orange
+            return .orange
         case .work:
-            return Color.orange
+            return .green
         case .rest:
-            return Color.blue
+            return .blue
         case .complete:
-            return Color.gray
+            return .gray
         }
+    }
+}
+
+@available(iOS 16.1, *)
+private struct CompactProgressView: View {
+    let state: GymPulseLiveActivityAttributes.ContentState
+
+    var body: some View {
+        if state.isPaused {
+            ProgressView(value: LiveActivityProgress.progress(for: state))
+                .progressViewStyle(.circular)
+                .tint(state.phase.tintColor)
+        } else {
+            ProgressView(timerInterval: phaseStartDate...state.phaseEndDate, countsDown: false) {
+                EmptyView()
+            } currentValueLabel: {
+                EmptyView()
+            }
+            .progressViewStyle(.circular)
+            .tint(state.phase.tintColor)
+        }
+    }
+
+    private var phaseStartDate: Date {
+        state.phaseEndDate.addingTimeInterval(-state.phaseDurationSeconds)
     }
 }
 
@@ -128,14 +149,15 @@ private struct CountdownText: View {
     let state: GymPulseLiveActivityAttributes.ContentState
 
     var body: some View {
-        Text(LiveActivityTimeFormatter.string(from: currentRemainingSeconds))
+        if state.isPaused {
+            Text(LiveActivityTimeFormatter.string(from: state.pausedRemainingSeconds))
+        } else {
+            Text(timerInterval: phaseStartDate...state.phaseEndDate, countsDown: true)
+        }
     }
 
-    private var currentRemainingSeconds: TimeInterval? {
-        if state.isPaused {
-            return state.pausedRemainingSeconds
-        }
-        return max(0, state.phaseEndDate.timeIntervalSince(Date()))
+    private var phaseStartDate: Date {
+        state.phaseEndDate.addingTimeInterval(-state.phaseDurationSeconds)
     }
 }
 
