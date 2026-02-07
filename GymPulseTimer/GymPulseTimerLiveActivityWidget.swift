@@ -9,7 +9,7 @@ struct GymPulseTimerLiveActivityWidget: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: GymPulseLiveActivityAttributes.self) { context in
             LiveActivityLockScreenView(context: context)
-                .activityBackgroundTint(Color.black.opacity(0.7))
+                .activityBackgroundTint(.clear)
                 .activitySystemActionForegroundColor(.white)
         } dynamicIsland: { context in
             DynamicIsland {
@@ -30,6 +30,9 @@ struct GymPulseTimerLiveActivityWidget: Widget {
                         CountdownText(state: context.state)
                             .font(.system(size: 28, weight: .bold, design: .rounded))
                             .monospacedDigit()
+                Text(summaryLine(for: context))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
                         ProgressView(value: LiveActivityProgress.progress(for: context.state))
                             .tint(context.state.phase.tintColor)
                     }
@@ -57,34 +60,66 @@ private struct LiveActivityLockScreenView: View {
     let context: ActivityViewContext<GymPulseLiveActivityAttributes>
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack(alignment: .firstTextBaseline) {
-                Text(context.state.phase.displayName)
+        VStack {
+            Spacer(minLength: 0)
+
+            VStack(alignment: .center, spacing: 8) {
+                Text(context.state.phase.displayName.uppercased())
                     .font(.headline)
-                Spacer()
+                    .foregroundStyle(.white.opacity(0.9))
+
                 CountdownText(state: context.state)
-                    .font(.system(size: 32, weight: .bold, design: .rounded))
+                    .font(.system(size: 36, weight: .bold, design: .rounded))
                     .monospacedDigit()
+                    .foregroundStyle(timeTintColor)
+
+                Text(summaryText)
+                    .font(.caption)
+                    .foregroundStyle(.white.opacity(0.75))
+
+                ProgressView(value: LiveActivityProgress.progress(for: context.state))
+                    .tint(context.state.phase.tintColor)
             }
-
-            Text(summaryText)
-                .font(.caption)
-                .foregroundStyle(.secondary)
-
-            ProgressView(value: LiveActivityProgress.progress(for: context.state))
-                .tint(context.state.phase.tintColor)
+            .padding(.vertical, 14)
+            .padding(.horizontal, 18)
+            .frame(maxWidth: .infinity)
+            .background(
+                LinearGradient(
+                    colors: [
+                        Color.blue.opacity(0.7),
+                        Color.blue.opacity(0.45),
+                        Color.orange.opacity(0.35)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                )
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .stroke(Color.white.opacity(0.18), lineWidth: 1)
+            )
         }
-        .padding(.horizontal)
+        .padding(.horizontal, 10)
+        .padding(.bottom, 6)
         .widgetURL(context.attributes.deepLinkURL)
     }
 
     private var summaryText: String {
-        let setText = "Set \(context.state.setIndex)/\(context.attributes.totalSets)"
-        let roundText = "Round \(context.state.roundIndex)/\(context.attributes.totalRounds)"
-        if context.state.isPaused {
-            return "\(setText) • \(roundText) • Paused"
+        summaryLine(for: context)
+    }
+
+    private var timeTintColor: Color {
+        switch context.state.phase {
+        case .getReady:
+            return Color.orange
+        case .work:
+            return Color.orange
+        case .rest:
+            return Color.blue
+        case .complete:
+            return Color.gray
         }
-        return "\(setText) • \(roundText)"
     }
 }
 
@@ -93,11 +128,14 @@ private struct CountdownText: View {
     let state: GymPulseLiveActivityAttributes.ContentState
 
     var body: some View {
+        Text(LiveActivityTimeFormatter.string(from: currentRemainingSeconds))
+    }
+
+    private var currentRemainingSeconds: TimeInterval? {
         if state.isPaused {
-            Text(LiveActivityTimeFormatter.string(from: state.pausedRemainingSeconds))
-        } else {
-            Text(state.phaseEndDate, style: .timer)
+            return state.pausedRemainingSeconds
         }
+        return max(0, state.phaseEndDate.timeIntervalSince(Date()))
     }
 }
 
@@ -116,6 +154,15 @@ private enum LiveActivityProgress {
         let clampedRemaining = min(max(remaining, 0), duration)
         return max(0, min(1, (duration - clampedRemaining) / duration))
     }
+}
+
+private func summaryLine(for context: ActivityViewContext<GymPulseLiveActivityAttributes>) -> String {
+    let setText = "Set \(context.state.setIndex)/\(context.attributes.totalSets)"
+    let roundText = "Round \(context.state.roundIndex)/\(context.attributes.totalRounds)"
+    if context.state.isPaused {
+        return "\(setText) • \(roundText) • Paused"
+    }
+    return "\(setText) • \(roundText)"
 }
 
 private extension LiveActivityPhase {

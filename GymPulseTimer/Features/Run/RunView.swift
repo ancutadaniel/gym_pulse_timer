@@ -100,9 +100,6 @@ struct RunView: View {
                 handleAudioCues(for: state)
             }
         }
-        .onDisappear {
-            endLiveActivity(finalState: engine.state)
-        }
     }
 
     private func togglePause() {
